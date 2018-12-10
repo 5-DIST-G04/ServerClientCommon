@@ -2,6 +2,7 @@ package com.distributed.common;
 
 import com.distributed.common.Node;
 import com.distributed.ta.NodeData;
+import com.distributed.ta.StatusExeption;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -30,9 +31,14 @@ public final class ServerComm { //TODO:implement functions
         //Todo: send my hash and get my neigbours
     }
 
-    public static Node ReportNodeFailiure(Node node){
-        return node;
+    public static Node ReportNodeFailiure(Node node) throws StatusExeption{
+        Client c = ClientBuilder.newClient();
+        WebTarget target = c.target(nodeData.getServerUri());
+        Response response = target.path("nextNodeFail/" + node).request(MediaType.APPLICATION_JSON).get();
+        if (response.getStatus() != 200) {
+            throw new StatusExeption(response.getStatus());
+        }
+        return response.readEntity(Node.class);
     }
-
 
 }
