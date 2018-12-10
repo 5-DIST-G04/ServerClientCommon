@@ -2,7 +2,7 @@ package com.distributed.common;
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
-public class ClientComm {
+public final class ClientComm {
     private ClientComm(){}
 
     public static void setPrevNeigbhour(Node prevNode, Node nodeToSet){
