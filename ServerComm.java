@@ -41,4 +41,9 @@ public final class ServerComm { //TODO:implement functions
         return response.readEntity(Node.class);
     }
 
+    public static Node getReplicationNode(int fileHash) {
+    return ReplicationNode;
+    }
+
+
 }
