@@ -14,7 +14,7 @@ public final class ClientComm {
     }
 
 
-    public static void replicate(file, Node replicationNOde) {
+    public static void replicate(File file, Node replicationNode) {
 
     }
 }
