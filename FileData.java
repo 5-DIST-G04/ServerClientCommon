@@ -2,7 +2,7 @@ package com.distributed.common;
 
 import java.util.HashMap;
 
-public class File {
+public class FileData {
     private String name;
     private boolean isFileOwner;
     private boolean shutdown;
@@ -28,7 +28,7 @@ public class File {
         isFileOwner = fileOwner;
     }
 
-    public File (String name) {
+    public FileData(String name) {
         this.name=name;
     }
 

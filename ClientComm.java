@@ -1,8 +1,5 @@
 package com.distributed.common;
 
-import jdk.internal.ref.Cleaner;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
@@ -22,11 +19,14 @@ public final class ClientComm {
     }
 
     public static void setNextNeighbour(Node nextNode, Node nodeToSet){
-        throw new NotImplementedException();
+        Client c = ClientBuilder.newClient();
+        WebTarget target = c.target("http://" + nodeToSet.getIpAddress() + ":8080/");
+        Response response  = target.path("Neighbours/nextvNode/").request().post(Entity.entity(nextNode,
+                MediaType.APPLICATION_JSON));
     }
 
 
-    public static void replicate(File file, Node replicationNode) {
+    public static void replicate(FileData fileData, Node replicationNode) {
 
     }
 }
