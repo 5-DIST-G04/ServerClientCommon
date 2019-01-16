@@ -6,6 +6,16 @@ public class FileData {
     private String name;
     private boolean isFileOwner;
     private boolean shutdown;
+
+    public boolean isDownloaded() {
+        return downloaded;
+    }
+
+    public void setDownloaded(boolean downloaded) {
+        this.downloaded = downloaded;
+    }
+
+    private boolean downloaded;
     private HashMap<Node,Integer> fileLog;
 
     public HashMap<Node, Integer> getFileLog() {
